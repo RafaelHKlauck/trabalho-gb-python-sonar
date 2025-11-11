@@ -12,7 +12,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
+          pip install pytest pytest-cov
+
+      - name: Run tests and generate coverage
+        run: |
+          source venv/bin/activate
+          pytest --cov=src --cov-report=xml:coverage.xml
+
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6
         env:
