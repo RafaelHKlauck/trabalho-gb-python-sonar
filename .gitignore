@@ -1,3 +1,11 @@
 .sonar
 .vscode
 venv
+.pytest_cache
+.coverage
+coverage.xml
+sonar-project.properties
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
