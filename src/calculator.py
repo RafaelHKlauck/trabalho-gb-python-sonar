@@ -13,7 +13,7 @@ class Calculator:
     return self.a * self.b
     
   def divide(self):
-    if self.b == 0:
+    if self.b == 0: 
       return "Error: Division by zero"
     return self.a / self.b
 
@@ -25,4 +25,3 @@ class Calculator:
 
   def cube(self):
     return self.a ** 3
-  
